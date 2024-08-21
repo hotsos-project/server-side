@@ -1,0 +1,66 @@
+version: '3.9'
+
+services:
+
+  nginx-proxy:
+    container_name: nginx-proxy
+    depends_on:
+      - backend
+      - fcm-test
+    image: nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/jenkins_home/workspace/hotsos/proxy/nginx.conf:/etc/nginx/nginx.conf
+      - /var/jenkins_home/workspace/hotsos/proxy/default.conf:/etc/nginx/conf.d/default.conf
+      - /var/www/html/index.html:/var/www/html/index.html
+      - type: bind
+        source: /etc/letsencrypt
+        target: /etc/letsencrypt
+    restart: "always"
+    networks: 
+      - hotsos
+
+  mysql:
+    image: mysql:8
+    container_name: hotsos-mysql
+    volumes:
+      - db:/var/lib/mysql
+    restart: "no"
+    environment:
+      - MYSQL_ROOT_PASSWORD=hotsos
+      - MYSQL_DATABASE=hotsos
+    networks:
+      - hotsos
+    ports:
+      - "3306:3306"
+      
+  backend:
+    image: limgayoung/hotsos-be:latest
+    container_name: hotsos-be
+    depends_on:
+      - mysql
+    ports:
+      - "8082:8082"
+    restart: "always"
+    networks:
+      - hotsos
+
+
+  redis:
+    image: redis:latest
+    container_name: hotsos-redis
+    restart: "no"
+    ports:
+      - "6379:6379"
+    networks:
+      - hotsos
+
+volumes:
+  db: {}
+
+networks:
+  hotsos:
+    name: hotsos
+    driver: bridge

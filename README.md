@@ -44,3 +44,25 @@
 6. 아키텍쳐
     
     ![아키텍쳐](https://github.com/user-attachments/assets/c74e9ee9-9db0-4224-9171-f860d2e7febd)
+
+7. 화면 소개
+    - 메인 홈
+      
+      <img src="https://github.com/user-attachments/assets/8bf9f46e-7274-45d4-8b01-a7074d45e02b" width="30%" height="30%"/>
+
+    - 재난문자 상세
+
+      <img src="https://github.com/user-attachments/assets/5ca855c3-e11b-48d8-82e7-65c96a9eafd5" width="30%" height="30%"/>
+
+    - 알림
+  
+      <img src="https://github.com/user-attachments/assets/56d7e04d-122d-4df1-9410-82a489fb4d1a" width="30%" height="30%"/>
+
+    - 게시판(욕설 필터링)
+
+      <img src="https://github.com/user-attachments/assets/a9395704-fdfc-49bf-acf1-6ae3296fe779" width="30%" height="30%"/>
+
+    - 게시판(핫게시물 알림)
+
+      <img src="https://github.com/user-attachments/assets/c89d654c-d786-4c1e-b099-8179618f679b" width="30%" height="30%"/>
+
